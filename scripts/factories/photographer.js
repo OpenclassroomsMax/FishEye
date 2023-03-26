@@ -39,7 +39,7 @@ export class Photographer {
         return `
         <article class="photographer">
             <a href="photographer.html?id=${this._id}" tabindex="1" class="focus__element" aria-label="Aller sur la page de ${this._name} basé à ${this._city},${this._country} sont tarif journalier est de ${this._price} euro par jour. Sa spécialité est ${this._tags} et sa devise ${this._tagline}">
-                <img class="photographers__img" src="${this.picture()}" alt="Photographie de profil de ${this._name}">
+                <img class="photographers__img" src="./${this.picture()}" alt="Photographie de profil de ${this._name}">
                 <h2>${this._name}</h2>
             </a>
             <p class="photographers__localization">${this._city},${this._country}</p>
@@ -57,7 +57,7 @@ export class Photographer {
                 <p class="photographer-page__header__tagline">${this._tagline}</p>
             </div>
             <button class="contact_button" tabindex="4" onclick="displayModal()">Contactez-moi</button>
-            <img src="${this.picture()}" class="photographer-page__header__photo" alt="Photographie de profil de ${this._name}">
+            <img src="./${this.picture()}" class="photographer-page__header__photo" alt="Photographie de profil de ${this._name}">
 
         `
     }
