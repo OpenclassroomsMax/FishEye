@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script
+    src="https://kit.fontawesome.com/545163d5d6.js"
+    crossorigin="anonymous"
+  ></script>
+    <title>Fisheye - photographe </title>
+  </head>
+  <body>
+    
+    <header>
+      <a href="index.html"
+      aria-label="retourner sur la page d'acceuil"
+      tabindex="2"><img src="assets/images/logo.png" class="logo" /></a>
+    </header>
+    <main id="main">
+      <div class="photograph-header">
+      </div>
+      <div class="photographer-page__dropdown">
+				<label class="label__dropdownMenu" for="dropdownMenu">Trier par</label>
+				<select
+					id="dropdownMenu"
+					class="photographer-page__dropdown-menu focus__element-secondary"
+          aria-label="Order by"
+					tabindex="4"
+				>
+					<option value="popularity" class="photographer-page__dropdown-menu-item">Popularité</option>
+					<option value="date" class="photographer-page__dropdown-menu-item">Date</option>
+					<option value="title" class="photographer-page__dropdown-menu-item">Titre</option>
+				</select>
+			</div>
+			<div class="photographer-page__gallery" id="Gallery"></div>
+    </main>
+    <div id="contact_modal" role="dialog" aria-modal="true">
+			<div class="modal">
+				<header>
+          <h2>Contactez-moi</h2>
+          <i class="fa-solid fa-xmark close"></i>
+        </header>
+				<form id="contact__modal">
+					<div>
+						<div class="form-field">
+              <label for="firstname" class="form-label">Prénom</label>
+              <input class="form-input focus__element" type="text" name="firstname" tabindex="3" id="firstname" required>
+            </div>
+            <div class="form-field">
+              <label for="lastname" class="form-label">Nom</label>
+              <input class="form-input focus__element" type="text" name="lastname" tabindex="3" id="lastname" required>
+            </div>
+            <div class="form-field">
+              <label for="email" class="form-label">Email</label>
+              <input class="form-input focus__element" type="email" name="lastname" tabindex="3" id="email" required>
+            </div>
+            <div class="form-field">
+              <label for="message" class="form-label">Votre message</label>
+              <input class="form-text-area focus__element" tabindex="3" id="message">
+            </div>
+					</div>
+          <button class="send_modal focus__element-secondary">Envoyer</button>
+				</form>
+			</div>
+		</div>
+    		<footer class="photographer-page__footer-section"></footer>
+
+    <script type="module" src="/scripts/factories/media.js"></script>
+    <script type="module" src="/scripts/factories/photographer.js"></script>
+    <script type="module" src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/contactForm.js"></script>
+    <script type="module" src="/scripts/utils/lightbox.js"></script>
+  </body>
+</html>
