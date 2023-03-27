@@ -23,9 +23,10 @@ export class Lightbox {
 	
 	
 	constructor(url, gallery, alt) {
+		
 		this.element = this.buildBox(url, alt);
 		this.gallery = gallery;
-		this.alt = alt
+		/*this.alt = alt*/
 		this.loadMedia(url, alt, gallery);
 		this.formatSrcForMedia(url);
 		this.onKeyUp = this.onKeyUp.bind(this);
@@ -43,6 +44,7 @@ export class Lightbox {
 	
 	loadMedia(url, alt) {
 		this.url = url;
+		
 		console.log(this.alt)
 		if (url.endsWith(".mp4")) {
 			const video = document.createElement("video");
@@ -94,21 +96,22 @@ export class Lightbox {
 	next(e) {
 		e.preventDefault();
 		let i = this.gallery.findIndex((image) => image === this.url);
+		
 		if (i === this.gallery.length - 1) {
 			i = -1;
 		}
-		this.loadMedia(this.gallery[i + 1], this.alt[i + 1]);
+		this.loadMedia(this.gallery[i + 1]);
 		console.log(this.gallery)
 	}
 
-	
+
 	previous(e) {
 		e.preventDefault();
 		let i = this.gallery.findIndex((image) => image === this.url);
 		if (i === 0) {
 			i = this.gallery.length;
 		}
-		this.loadMedia(this.gallery[i - 1], this.alt[i - 1]);
+		this.loadMedia(this.gallery[i - 1]);
 	}
 
 	
@@ -116,10 +119,10 @@ export class Lightbox {
 		const box = document.createElement("div");
 		box.classList.add("lightbox");
 		box.innerHTML = `
-    <a class="lightbox__close" aria-label="Fermer la visualition du média"><i class="fa-solid fa-xmark"></i></a>
-    <a class="lightbox__next" aria-label="Image suivante"><i class="fa-solid fa-arrow-right"></i></a>
-    <a class="lightbox__previous" aria-label="Image précédente"><i class="fa-solid fa-arrow-left"></i></a>
-    <div class="lightbox__container" role="dialog" aria-label="">
+    <a class="lightbox__close" aria-label="fermer"><i class="fa-solid fa-xmark"></i></a>
+    <a class="lightbox__next" aria-label="suivant"><i class="fa-solid fa-arrow-right"></i></a>
+    <a class="lightbox__previous" aria-label="précédent" tabindex="1"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="lightbox__container">
     <p class="lightbox__container__img-title"></p>
     </div>`;
 	box.querySelector(".lightbox__close").addEventListener("click", this.close.bind(this));

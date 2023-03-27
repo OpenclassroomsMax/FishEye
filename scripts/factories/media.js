@@ -30,7 +30,7 @@ class Picture {
 	createHtml() {
 		return `
         <div class="photographer-page_Media_card" >
-            <img class="photographer-page_media_Picture focus__element" aria-label="${this._imgTitle}" aria-hidden="true" src="./assets/medias/${this._imgPhotographerId}/${this._imgSrc}" tabindex="5" alt="${this._imgTitle}"/>
+            <img class="photographer-page_media_Picture focus__element" aria-label="${this._imgTitle}" src="./assets/medias/${this._imgPhotographerId}/${this._imgSrc}" tabindex="5" alt="${this._imgTitle}"/>
             <div class="photographer-page_Media_text">
                 <p class="photographer-page_Media_title">${this._imgTitle}</p>
                 <aside class="photographer-page_Media_likesection">
@@ -60,10 +60,10 @@ class Video {
 	createHtml() {
 		return `
         <div class="photographer-page_Media_card" >
-            <video controls class="photographer-page_media_Picture focus__element" tabindex="5">
+            <video class="photographer-page_media_Picture focus__element" tabindex="5" aria-label="${this._videoTitle}">
                 <source src="./assets/medias/${this._videoPhotographerId}/${this._videoSrc}"/>
             </video>
-            <div class="photographer-page_Media_text">
+            <div controls class="photographer-page_Media_text">
                 <p class="photographer-page_Media_text">${this._videoTitle}</p>
                 <aside class="photographer-page_Media_likesection">
                     <p class="photographer-page_Media_numLikes">${this._videoLikes}</p>
