@@ -73,6 +73,11 @@ export class Photographer {
         </section>
         `
     }
+    createModal(){
+        return`
+    <h2 class="photographer_modal__title">Contactez-moi<br>${this._name}</h2>
+    <strong class="fa-solid fa-xmark close"></strong>`
+    }
 
     /*userReloadLikes() {
 		const totalLikesElements = document.querySelectorAll(

@@ -52,6 +52,7 @@ async function init() {
     // Récupère les datas des photographes
     const photographersHeader = document.querySelector(".photograph-header");
     const photographersFooter = document.querySelector(".photographer-page__footer-section");
+    const photographersmodal = document.querySelector(".photographer_modal__title");
 
     const  {photographers,media}  = await getData();
     const idphotographer = shearchId();
@@ -61,9 +62,11 @@ async function init() {
     const photographerProfil = new Photographer(found);
     const headerphotographer = photographerProfil.createHeader();
     const footerphotographer = photographerProfil.createFooter();
+    const modalphotographer = photographerProfil.createModal();
 
     photographersHeader.innerHTML=photographersHeader.innerHTML+(headerphotographer);
     photographersFooter.innerHTML=photographersFooter.innerHTML+(footerphotographer);
+    photographersmodal.innerHTML=photographersmodal.innerHTML+(modalphotographer)
 
     const mediaAll = media.filter(media => media.photographerId == idphotographer);
     
