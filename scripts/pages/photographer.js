@@ -43,7 +43,7 @@ const filter = (mediaAll, option) => {
 function shearchId(){
 
     let params = new URLSearchParams(document.location.search.substring(1));
-    let id = params.get('id'); // la chaine de caractère "Jonathan Smith".
+    let id = params.get('id');
     console.log(id)
     return id
 }
@@ -97,12 +97,13 @@ function likeAll(){
     let likeSum = 0;
     totalLikesElements.forEach(function (like) {
         likeSum += Number(like.textContent)
+        console.log(like)
     });
     result.innerHTML = likeSum
 }   
 
 function eventheart(){
-    console.log("eventheart()")
+
     const links = Array.from(document.querySelectorAll(".photographer-page_Media_likesection"));
     links.forEach((link) => {
 

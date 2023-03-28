@@ -60,7 +60,7 @@ class Video {
 	createHtml() {
 		return `
         <div class="photographer-page_Media_card" >
-            <video class="photographer-page_media_Picture focus__element" tabindex="5" aria-label="${this._videoTitle}">
+            <video controls class="photographer-page_media_Picture focus__element" tabindex="5" aria-label="${this._videoTitle}">
                 <source src="./assets/medias/${this._videoPhotographerId}/${this._videoSrc}"/>
             </video>
             <div controls class="photographer-page_Media_text">
