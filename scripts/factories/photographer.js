@@ -1,20 +1,3 @@
-// function photographerFactory(data) {
-//     const { name, portrait } = data;
-
-//     const picture = `assets/photographers/${portrait}`;
-
-//     function getUserCardDOM() {
-//         const article = document.createElement( 'article' );
-//         const img = document.createElement( 'img' );
-//         img.setAttribute("src", picture)
-//         const h2 = document.createElement( 'h2' );
-//         h2.textContent = name;
-//         article.appendChild(img);
-//         article.appendChild(h2);
-//         return (article);
-//     }
-//     return { name, picture, getUserCardDOM }
-// }
 
 export class Photographer {
 
@@ -38,7 +21,9 @@ export class Photographer {
     createhtml() {
         return `
         <article class="photographer">
-            <a href="photographer.html?id=${this._id}" tabindex="1" class="focus__element" aria-label="Aller sur la page de ${this._name} basé à ${this._city},${this._country} sont tarif journalier est de ${this._price} euro par jour. Sa spécialité est ${this._tags} et sa devise ${this._tagline}">
+            <a href="photographer.html?id=${this._id}" tabindex="1" class="focus__element" aria-label="Aller sur la page de ${this._name} 
+            basé à ${this._city},${this._country} sont tarif journalier est de ${this._price} euro par jour
+            et sa devise ${this._tagline}">
                 <img class="photographers__img" src="${this.picture()}" alt="Photographie de profil de ${this._name}">
                 <h2>${this._name}</h2>
             </a>
@@ -78,20 +63,8 @@ export class Photographer {
     <h2 class="photographer_modal__title">Contactez-moi<br>${this._name}</h2>
     <strong class="fa-solid fa-xmark close"></strong>`
     }
-
-    /*userReloadLikes() {
-		const totalLikesElements = document.querySelectorAll(
-			".photographer-page_Media_numLikes"
-		)
-        console.log(totalLikesElements)
-		const likeSum = 0;
-		totalLikesElements.forEach(function (like) {
-			const likeUnit = Number(like.textContent)
-			likeSum += likeUnit
-		});
-		return likeSum
-	}*/        
+      
 }
 
 
-/*object assign*/
+

@@ -7,7 +7,7 @@ export class Lightbox {
 		links.forEach((link) => {
 			link.addEventListener("click", (e) => {
 				e.preventDefault();
-				new Lightbox(e.currentTarget.getAttribute("src"), gallery, e.currentTarget.getAttribute("alt"));
+				new Lightbox(e.currentTarget.getAttribute("src"), gallery);
 				
 			});
 			link.addEventListener("keydown", (e) => {
@@ -22,23 +22,20 @@ export class Lightbox {
 	}
 	
 	
-	constructor(url, gallery, alt, data) {
+	constructor(url, gallery, alt) {
 		
 		this.element = this.buildBox(url, alt);
 		this.gallery = gallery;
-		
-
 		/*this.alt = alt*/
 		this.loadMedia(url, alt, gallery);
-		this.formatSrcForMedia(url);
-		this.onKeyUp = this.onKeyUp.bind(this);
+		this.formatSrcMedia(url);
+		this.onKeydown = this.onKeydown.bind(this);
 		document.body.appendChild(this.element);
-		document.addEventListener("keydown", this.onKeyUp);
-		console.log(data);
+		document.addEventListener("keydown", this.onKeydown);
 	}
 	
 
-	formatSrcForMedia(src) {
+	formatSrcMedia(src) {
 		let lightboxMediaLink = src.split("/");
 		lightboxMediaLink.splice(4, 0, "lightbox");
 		const formatedLightboxMediaLink = lightboxMediaLink.join("/");
@@ -63,14 +60,11 @@ export class Lightbox {
 			const image = document.createElement("img");
 			const container = this.element.querySelector(".lightbox__container");
 			const legend = document.createElement("p");
-			/*legend.innerHTML = this.alt;
-			console.log(this.alt);*/
 			legend.innerHTML += this.Legend(url);
 			container.innerHTML = "";
 			container.appendChild(image);
 			container.appendChild(legend);
 			image.alt = this.Legend(url);
-
 			image.src = url;
 			image.classList.add("lightbox__container__img");
 		}
@@ -85,7 +79,7 @@ export class Lightbox {
 
 
 	
-	onKeyUp(e) {
+	onKeydown(e) {
 		if (e.key === "Escape") {
 			this.close(e);
 		} else if (e.key === "ArrowRight") {
@@ -96,23 +90,20 @@ export class Lightbox {
 			
 
 		}
-		console.log(e)
 	}
 
 	
 	close(e) {
-		console.log(e)
 		e.preventDefault();
 		this.element.classList.add("fadeOut");
 		window.setTimeout(() => {
 			this.element.parentElement.removeChild(this.element);
 		}, 500);
-		document.removeEventListener("keydown", this.onKeyUp);
+		document.removeEventListener("keydown", this.onKeydown);
 	}
 
 	
 	next(e) {
-		console.log(e.preventDefault())
 		e.preventDefault();
 		let i = this.gallery.findIndex((image) => image === this.url);
 		
@@ -120,14 +111,10 @@ export class Lightbox {
 			i = -1;
 		}
 		this.loadMedia(this.gallery[i + 1]);
-		console.log(this.gallery)
-		console.log(e.preventDefault())
-
 	}
 
 
 	previous(e) {
-		console.log(e.preventDefault())
 		e.preventDefault();
 		let i = this.gallery.findIndex((image) => image === this.url);
 		if (i === 0) {

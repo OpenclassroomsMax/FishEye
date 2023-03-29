@@ -11,8 +11,6 @@ function displayModal() {
 	const messageInput = document.getElementById("message");
 	const submitButton = document.querySelectorAll(".send_modal");
 
-  
-	
 	btn.onclick = function () {
 		modal.style.display = "block";
 	};
@@ -46,3 +44,4 @@ function displayModal() {
 
 	}
 }
+
