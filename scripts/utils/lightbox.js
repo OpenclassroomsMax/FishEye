@@ -129,8 +129,8 @@ export class Lightbox {
 		box.classList.add("lightbox");
 		box.innerHTML = `
     <a class="lightbox__close" aria-label="fermer"><i class="fa-solid fa-xmark" aria-label="fermer"></i></a>
-    <a class="lightbox__next" aria-label="suivant"><i class="fa-solid fa-arrow-right"></i></a>
-    <a class="lightbox__previous" aria-label="précédent"><i class="fa-solid fa-arrow-left"></i></a>
+    <a class="lightbox__next" aria-label="suivant"><i class="fa-solid fa-chevron-right"></i></a>
+    <a class="lightbox__previous" aria-label="précédent"><i class="fa-solid fa-chevron-left"></i></a>
     <div class="lightbox__container">
     <p class="lightbox__legend"></p>
     </div>`;
