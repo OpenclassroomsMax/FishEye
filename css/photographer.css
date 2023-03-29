@@ -50,6 +50,7 @@
     left: 0%;
     bottom: 0%;
     right: 0%;
+    height: 90%;
 }
 
 .modal header {
@@ -91,6 +92,7 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 2em;
 }
 
 .form-text-area{
